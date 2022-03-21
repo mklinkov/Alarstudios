@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="Alarstudios" customModuleProvider="target">
+            <connections>
+                <outlet property="countryLabel" destination="YOf-am-Fan" id="7QL-e7-rn3"/>
+                <outlet property="mapView" destination="FPj-yR-2Ib" id="VRM-5K-wHx"/>
+                <outlet property="nameLabel" destination="Gav-Gx-m0J" id="8LT-gF-SqS"/>
+                <outlet property="positionLabel" destination="m9B-Kc-fry" id="OCm-7d-Ncd"/>
+                <outlet property="view" destination="iN0-l3-epB" id="KeN-5C-pe1"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRx-2x-TgR">
+                    <rect key="frame" x="0.0" y="44" width="414" height="200"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gav-Gx-m0J">
+                            <rect key="frame" x="20" y="20" width="374" height="21.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOf-am-Fan">
+                            <rect key="frame" x="20" y="71.5" width="374" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9B-Kc-fry">
+                            <rect key="frame" x="20" y="122.5" width="374" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="backgroundColor"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="m9B-Kc-fry" firstAttribute="trailing" secondItem="YOf-am-Fan" secondAttribute="trailing" id="1Ij-Mi-IMV"/>
+                        <constraint firstItem="m9B-Kc-fry" firstAttribute="leading" secondItem="YOf-am-Fan" secondAttribute="leading" id="30o-XC-RoG"/>
+                        <constraint firstItem="YOf-am-Fan" firstAttribute="leading" secondItem="Gav-Gx-m0J" secondAttribute="leading" id="4Ba-TM-fGT"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="m9B-Kc-fry" secondAttribute="bottom" constant="20" id="5LH-KF-JtT"/>
+                        <constraint firstItem="m9B-Kc-fry" firstAttribute="centerX" secondItem="YOf-am-Fan" secondAttribute="centerX" id="Jzd-f8-gI4"/>
+                        <constraint firstAttribute="height" constant="200" id="UFy-9m-8cD"/>
+                        <constraint firstItem="YOf-am-Fan" firstAttribute="top" secondItem="Gav-Gx-m0J" secondAttribute="bottom" constant="30" id="UTL-8i-z9Q"/>
+                        <constraint firstItem="m9B-Kc-fry" firstAttribute="centerX" secondItem="YOf-am-Fan" secondAttribute="centerX" id="UZQ-Jo-kb0"/>
+                        <constraint firstItem="YOf-am-Fan" firstAttribute="trailing" secondItem="Gav-Gx-m0J" secondAttribute="trailing" id="XUo-sA-uTT"/>
+                        <constraint firstAttribute="trailing" secondItem="Gav-Gx-m0J" secondAttribute="trailing" constant="20" id="Xlv-Kg-iJT"/>
+                        <constraint firstItem="m9B-Kc-fry" firstAttribute="top" secondItem="YOf-am-Fan" secondAttribute="bottom" constant="30" id="ofx-Zx-vds"/>
+                        <constraint firstItem="Gav-Gx-m0J" firstAttribute="leading" secondItem="hRx-2x-TgR" secondAttribute="leading" constant="20" id="p2g-Ha-QPz"/>
+                        <constraint firstItem="Gav-Gx-m0J" firstAttribute="top" secondItem="hRx-2x-TgR" secondAttribute="top" constant="20" id="pi8-FI-zlk"/>
+                    </constraints>
+                </view>
+                <mapView multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FPj-yR-2Ib">
+                    <rect key="frame" x="0.0" y="244" width="414" height="618"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </mapView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="backgroundColor"/>
+            <constraints>
+                <constraint firstItem="hRx-2x-TgR" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="11v-qg-cfs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="FPj-yR-2Ib" secondAttribute="bottom" id="EgU-Ab-w3L"/>
+                <constraint firstItem="FPj-yR-2Ib" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="MAR-Hj-P3R"/>
+                <constraint firstItem="FPj-yR-2Ib" firstAttribute="top" secondItem="hRx-2x-TgR" secondAttribute="bottom" id="NEf-nV-mcG"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="FPj-yR-2Ib" secondAttribute="trailing" id="RrX-qb-AEl"/>
+                <constraint firstItem="hRx-2x-TgR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pXG-bs-pdH"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hRx-2x-TgR" secondAttribute="trailing" id="wYn-Gs-ALq"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="106.47321428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="backgroundColor">
+            <color red="0.85186785459518433" green="0.85839647054672241" blue="0.88166165351867676" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
