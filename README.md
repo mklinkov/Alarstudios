@@ -22,3 +22,12 @@ UseCase - единица бизнеслогики
 
 использован сервис рандомных картинок:
 https://source.unsplash.com
+
+Развитие:
+
+Покрыть тестами:
+- LoadListsPageUseCase
+- LoadImageUseCase
+
+Добавить выход из приложения.
+Сделать дизайн
