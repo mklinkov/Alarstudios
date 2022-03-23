@@ -13,7 +13,6 @@ final class LoginViewController: BaseViewController, UITextFieldDelegate {
     private lazy var loginTextField: TextField = {
         let textField = TextField()
         textField.placeholder = "account"
-        textField.text = "test"
         textField.customize()
         textField.returnKeyType = .done
         return textField
@@ -21,7 +20,6 @@ final class LoginViewController: BaseViewController, UITextFieldDelegate {
     
     private lazy var passwordTextField: TextField = {
         let textField = TextField()
-        textField.text = "123"
         textField.placeholder = "password"
         textField.customize()
         textField.isSecureTextEntry = true
@@ -100,7 +98,6 @@ final class LoginViewController: BaseViewController, UITextFieldDelegate {
     
     @objc func loginBtnPressed() {
         presenter?.loginAction(loginTextField.text, passwordTextField.text)
-        print("dsdfs")
     }
 }
 
