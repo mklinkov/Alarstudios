@@ -18,6 +18,7 @@ protocol ListViewModelInput: AnyObject {
 
 final class ListViewModel {
     private let listUseCase: LoadListsPageUseCase
+    private var numberPage: Int = 0
     var presenter: ListViewModelOutput?
     
     init(listUseCase: LoadListsPageUseCase) {
@@ -27,7 +28,8 @@ final class ListViewModel {
 
 extension ListViewModel: ListViewModelInput {
     func loadPage() {
-        listUseCase.invoke(0) { [weak self] result in
+        listUseCase.invoke(numberPage) { [weak self] result in
+            self?.numberPage += 1
             guard let self = self else { return }
             switch result {
             case .success(let newPage):
