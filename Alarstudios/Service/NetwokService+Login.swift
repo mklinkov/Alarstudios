@@ -14,7 +14,7 @@ struct LoginRequest: DataRequest {
     let login: String
     typealias Response = LoginResponseModel
     
-    var queryItems: [String : String] {
+    var queryItems: [String: String] {
         ["username": "\(login)",
             "password": password ]
     }
@@ -28,8 +28,8 @@ struct LoginRequest: DataRequest {
 
 struct LoginResponseModel: Decodable {
     enum LoginResponseModelStatus: String, Codable {
-        case ok = "ok"
-        case error = "error"
+        case ok
+        case error
     }
     
     let status: LoginResponseModelStatus
@@ -43,7 +43,7 @@ extension LoginResponseModel: Equatable {
 }
 
 extension NetwokService {
-    func signeIn(_ login: String, _ password: String, _  complection: @escaping (Result<LoginRequest.Response, CustomError>)->()) {
+    func signeIn(_ login: String, _ password: String, _  complection: @escaping (Result<LoginRequest.Response, CustomError>) -> Void) {
         let request = LoginRequest(login, password)
         network.request(request) { response in
             switch response {

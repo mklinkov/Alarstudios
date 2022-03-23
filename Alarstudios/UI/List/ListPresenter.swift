@@ -21,7 +21,6 @@ final class ListPresenter {
     private let view: ListPresenterOutput
     private let router: ListRouter
     private let viewModel: ListViewModelInput
-    
     init(view: ListPresenterOutput,
          router: ListRouter,
          viewModel: ListViewModelInput) {
@@ -32,11 +31,9 @@ final class ListPresenter {
 }
 
 extension ListPresenter: ListPresenterInput {
-    
     func openDetail(_ item: PageModel.Item) {
         router.openItemDetail(item)
     }
-    
     func loadNextPage() {
         viewModel.loadPage()
     }
@@ -46,7 +43,6 @@ extension ListPresenter: ListViewModelOutput {
     func showPage(_ list: [PageModel.Item]) {
         view.showPage(list)
     }
-    
     func showError(_ error: CustomError) {
         view.showError(error)
     }

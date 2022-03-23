@@ -24,7 +24,7 @@ final class ListTableViewCellModel {
         self.loadImageUseCase = loadImageUseCase
     }
 
-    func loadImage(_ complection: @escaping (LoadStatus)->()) {
+    func loadImage(_ complection: @escaping (LoadStatus) -> Void) {
         complection(.loading(Self.placeholderImage))
         loadImageUseCase.invoke(index) { image in
             guard let image = image else {

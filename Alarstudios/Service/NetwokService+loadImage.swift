@@ -15,7 +15,7 @@ struct LoadImageRequest: DataRequest {
     let sig: Int
     typealias Response = UIImage
     
-    var queryItems: [String : String] {
+    var queryItems: [String: String] {
         ["sig": "\(sig)"]
     }
     
@@ -31,7 +31,7 @@ struct LoadImageRequest: DataRequest {
 }
 
 extension NetwokService {
-    func loadImage(_ index: Int, _  complection: @escaping (Result<LoadImageRequest.Response, ImageLoadError>)->()) {
+    func loadImage(_ index: Int, _  complection: @escaping (Result<LoadImageRequest.Response, ImageLoadError>) -> Void) {
         let request = LoadImageRequest(sig: index)
         network.request(request) { response in
             switch response {

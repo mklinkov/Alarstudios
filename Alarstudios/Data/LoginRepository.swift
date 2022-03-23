@@ -13,7 +13,7 @@ import Foundation
 /// репозиторий всегда описывается через протокол
 /// в репозитории всегда возврает результат в main
 protocol LoginRepositoryProtocol {
-    func signeIn(_ login: String, _ password: String, _ complection: @escaping (Result<LoginRequest.Response, CustomError>)->())
+    func signeIn(_ login: String, _ password: String, _ complection: @escaping (Result<LoginRequest.Response, CustomError>) -> Void)
     func getSessionKey() -> String?
     func setSessionKey(_ sessionKey: String)
 }
@@ -29,7 +29,7 @@ final class LoginRepository: LoginRepositoryProtocol {
     
     func signeIn(_ login: String,
                  _ password: String,
-                 _ complection: @escaping (Result<LoginRequest.Response, CustomError>)->()) {
+                 _ complection: @escaping (Result<LoginRequest.Response, CustomError>) -> Void) {
         dataSource?.signeIn(login, password) { result in
             DispatchQueue.main.async {
                 complection(result)

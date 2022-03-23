@@ -12,7 +12,7 @@ protocol ListTableViewModelDelegate: AnyObject {
     func loadNexPage()
 }
 
-final class ListTableViewModel: NSObject, UITableViewDataSource, UITableViewDelegate  {
+final class ListTableViewModel: NSObject, UITableViewDataSource, UITableViewDelegate {
     private var list: [PageModel.Item] = []
     private var listCellModel: [ListTableViewCellModel] = []
     private weak var delegate: ListTableViewModelDelegate?
@@ -56,14 +56,14 @@ final class ListTableViewModel: NSObject, UITableViewDataSource, UITableViewDele
     }
 }
 
-
 private extension ListTableViewModel {
     
     func prepareCell(_ cell: ListTableViewCell, index: Int) -> ListTableViewCell {
         if listCellModel.indices.contains(index) {
             cell.setModel(listCellModel[index])
-        } else {
-            if let model = cellModelBulder?.createCellModel(index: index, name:  list[index].name) {
+        }
+        else {
+            if let model = cellModelBulder?.createCellModel(index: index, name: list[index].name) {
                 listCellModel.insert(model, at: index)
                 cell.setModel(model)
             }

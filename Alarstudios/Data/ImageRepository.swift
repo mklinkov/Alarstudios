@@ -14,7 +14,7 @@ import UIKit
 ///репозиторий всегда описывается через протокол
 /// в репозитории всегда возврает результат в main
 protocol ImageRepositoryProtocol {
-    func loadRandomImage(_ index: Int, _ complection: @escaping (Result<UIImage, ImageLoadError>) -> ())
+    func loadRandomImage(_ index: Int, _ complection: @escaping (Result<UIImage, ImageLoadError>) -> Void)
 }
 
 enum ImageLoadError: Error {
@@ -30,7 +30,7 @@ final class ImageRepository: ImageRepositoryProtocol {
         self.store = store
     }
 
-    func loadRandomImage(_ index: Int, _ complection: @escaping (Result<UIImage, ImageLoadError>) -> ()) {
+    func loadRandomImage(_ index: Int, _ complection: @escaping (Result<UIImage, ImageLoadError>) -> Void) {
         if let image = store?.getImage(index: index) {
             return complection(.success(image))
         }
@@ -56,7 +56,7 @@ protocol ImageInmemoryStoreProtocol: AnyObject {
 /// хранилище в памяти, можно заменить на любой вариант хранения
 final class ImageInmemoryStore: ImageInmemoryStoreProtocol {
     static let instance = ImageInmemoryStore.init()
-    private var listOfImage: [Int:  UIImage] = [:]
+    private var listOfImage: [Int: UIImage] = [:]
     private init() { }
     
     func saveImage(index: Int, image: UIImage) {

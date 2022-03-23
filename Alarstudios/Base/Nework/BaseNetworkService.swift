@@ -59,7 +59,8 @@ final class DefaultNetworkService: NetworkServiceProtocol {
             do {
                 let model = try request.decode(data)
                 completion(.success(model))
-            } catch let error {
+            }
+            catch let error {
                 completion(.failure(.customError(error)))
             }
         }

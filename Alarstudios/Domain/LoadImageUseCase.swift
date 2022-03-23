@@ -19,7 +19,7 @@ final class LoadImageUseCase {
         self.imageRepository = imageRepository
     }
     
-    func invoke(_ index: Int, _ complection: @escaping (UIImage?) -> ()) {
+    func invoke(_ index: Int, _ complection: @escaping (UIImage?) -> Void) {
         imageRepository.loadRandomImage(index) { result in
             switch result {
             case .failure:

@@ -61,7 +61,7 @@ final class ListTableViewCell: UITableViewCell {
             mainContainer.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             mainContainer.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             mainContainer.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
-            mainContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            mainContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([

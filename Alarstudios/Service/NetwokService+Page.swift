@@ -14,7 +14,7 @@ struct PageRequest: DataRequest {
     let page: Int
     typealias Response = [PageModel.Item]
     
-    var queryItems: [String : String] {
+    var queryItems: [String: String] {
         ["code": sessionKey,
          "p": "\(page)"]
     }
@@ -52,8 +52,8 @@ struct PageModel: Decodable {
 }
 
 extension NetwokService {
-    func get(_ page: Int, _ sessionKey: String, _ complection: @escaping (Result<PageRequest.Response, CustomError>)->()) {
-        let request = PageRequest(sessionKey,page)
+    func get(_ page: Int, _ sessionKey: String, _ complection: @escaping (Result<PageRequest.Response, CustomError>) -> Void) {
+        let request = PageRequest(sessionKey, page)
         network.request(request) { result in
             switch result {
             case .success(let response):

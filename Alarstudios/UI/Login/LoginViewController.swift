@@ -55,8 +55,6 @@ final class LoginViewController: BaseViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
-        
     }
     
     func setupUI() {
@@ -97,7 +95,7 @@ final class LoginViewController: BaseViewController, UITextFieldDelegate {
         self.loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: padding).isActive = true
         self.loginButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
         self.loginButton.addTarget(self, action: #selector(loginBtnPressed), for: .touchUpInside)
-    
+        
     }
     
     @objc func loginBtnPressed() {

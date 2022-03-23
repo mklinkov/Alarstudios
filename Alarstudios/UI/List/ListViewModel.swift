@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ListViewModelOutput: AnyObject {
-    func showPage(_ list:  [PageModel.Item])
+    func showPage(_ list: [PageModel.Item])
     func showError(_ error: CustomError)
 }
 

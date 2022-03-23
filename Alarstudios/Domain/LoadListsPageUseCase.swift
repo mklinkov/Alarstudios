@@ -19,11 +19,11 @@ final class LoadListsPageUseCase {
         self.listRepository = listRepository
         self.loginRepository = loginRepository
     }
-    /// метод получение страницы списка invoke(_ page: Int, _ complection: (Result<String, CustomError>)->())
+    /// метод получение страницы списка invoke(_ page: Int, _ complection: (Result<String, CustomError>) -> Void)
     /// - Parameters:
     ///  - page: номер страницы
     ///  - complection:  блок выполнения
-    func invoke(_ page: Int, _ complection: @escaping (Result<PageRequest.Response, CustomError>)->()) {
+    func invoke(_ page: Int, _ complection: @escaping (Result<PageRequest.Response, CustomError>) -> Void) {
         guard let sessionKey = loginRepository.getSessionKey() else {
             return complection(.failure(.sessionNotfound))
         }

@@ -28,7 +28,7 @@ final class LoginRouter: Router {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: "barColor")
-        navigationController.navigationBar.standardAppearance = appearance;
+        navigationController.navigationBar.standardAppearance = appearance
         navigationController.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.standardAppearance
         pop(navigationController)
     }

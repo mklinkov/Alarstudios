@@ -24,7 +24,7 @@ final class LoginUseCase {
     ///  - login: опциональлный параметр для передачи логина польлзователя
     ///  - password: опциональный параметр для передачи пароля польлзователя
     ///  - complection:  замыкание обработки завершения
-    func invoke(_ login: String?, _ password: String?, _ complection: @escaping (Result<LoginRequest.Response, CustomError>)->()) {
+    func invoke(_ login: String?, _ password: String?, _ complection: @escaping (Result<LoginRequest.Response, CustomError>) -> Void) {
         guard let login = login, !login.isEmpty else {
             return complection(.failure(.validationLoginError))
         }
@@ -49,7 +49,8 @@ final class LoginUseCase {
                 if  let sessonKey = response.code, !sessonKey.isEmpty {
                     self.loginRepository.setSessionKey(sessonKey)
                     complection(.success(response))
-                } else {
+                }
+                else {
                     complection(.failure(.unknownError))
                 }
             case .failure(let error):
