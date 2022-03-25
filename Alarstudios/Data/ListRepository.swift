@@ -17,8 +17,8 @@ protocol ListRepositoryProtocol {
 }
 
 final class ListRepository: ListRepositoryProtocol {
-    private let dataSource: NetwokService
-    init(dataSource: NetwokService) {
+    private let dataSource: NetwokServiceProtocol
+    init(dataSource: NetwokServiceProtocol) {
         self.dataSource = dataSource
     }
     

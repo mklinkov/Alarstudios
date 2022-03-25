@@ -18,7 +18,7 @@ extension Routing {
         view.navigationController?.pushViewController(destinationView, animated: true)
     }
     
-    func pop(_ destinationView: UIViewController) {
+    func present(_ destinationView: UIViewController) {
         destinationView.modalPresentationStyle = .fullScreen
         view.present(destinationView, animated: false, completion: nil)
     }

@@ -20,9 +20,9 @@ protocol LoginRepositoryProtocol {
 
 final class LoginRepository: LoginRepositoryProtocol {
     
-    private var dataSource: NetwokService?
+    private var dataSource: NetwokServiceProtocol?
     private weak var store: LoginInMemoryStoreProtocol?
-    init(dataSource: NetwokService, store: LoginInMemoryStoreProtocol ) {
+    init(dataSource: NetwokServiceProtocol, store: LoginInMemoryStoreProtocol ) {
         self.dataSource = dataSource
         self.store = store
     }

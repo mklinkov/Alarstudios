@@ -30,6 +30,6 @@ final class LoginRouter: Router {
         appearance.backgroundColor = UIColor(named: "barColor")
         navigationController.navigationBar.standardAppearance = appearance
         navigationController.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.standardAppearance
-        pop(navigationController)
+        present(navigationController)
     }
 }
