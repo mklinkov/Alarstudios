@@ -8,7 +8,8 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
-    func request<Request: DataRequest>(_ request: Request, _ completion: @escaping (Result<Request.Response, NetworkError>) -> Void)
+    func request<Request: DataRequest>(_ request: Request,
+                                       _ completion: @escaping (Result<Request.Response, NetworkError>) -> Void)
 }
 
 enum NetworkError: Error {
@@ -19,7 +20,8 @@ enum NetworkError: Error {
 
 final class DefaultNetworkService: NetworkServiceProtocol {
     
-    func request<Request: DataRequest>(_ request: Request, _ completion: @escaping (Result<Request.Response, NetworkError>) -> Void) {
+    func request<Request: DataRequest>(_ request: Request,
+                                       _ completion: @escaping (Result<Request.Response, NetworkError>) -> Void) {
         
         guard var urlComponent = URLComponents(string: request.url) else {
             return completion(.failure(.errorSendRequest))
@@ -59,8 +61,7 @@ final class DefaultNetworkService: NetworkServiceProtocol {
             do {
                 let model = try request.decode(data)
                 completion(.success(model))
-            }
-            catch let error {
+            } catch let error {
                 completion(.failure(.customError(error)))
             }
         }

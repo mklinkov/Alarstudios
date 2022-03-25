@@ -7,20 +7,20 @@
 
 import Foundation
 
-///протокол для presenter
+/// протокол для presenter
 protocol LoginViewModelOutput: AnyObject {
     func showError(_ error: LoginPresenter.DisplayFailure)
     func loginDidSuccess()
 }
 
-///протокол для получения событий из presenter
+/// протокол для получения событий из presenter
 protocol LoginViewModelInput: AnyObject {
     func login(_ login: String?, _ password: String?)
 }
 
 final class LoginViewModel {
     private let loginUseCase: LoginUseCase
-    var presenter: LoginViewModelOutput?
+    weak var presenter: LoginViewModelOutput?
     
     init(loginUseCase: LoginUseCase) {
         self.loginUseCase = loginUseCase

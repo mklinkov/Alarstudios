@@ -17,7 +17,7 @@ protocol DetailViewModelInput: AnyObject {
 
 final class DetailViewModel {
     private let item: PageModel.Item
-    var presenter: DetailViewModelOutput?
+    weak var presenter: DetailViewModelOutput?
     
     init(_ item: PageModel.Item) {
         self.item = item

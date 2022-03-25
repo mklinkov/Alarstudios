@@ -8,11 +8,16 @@
 import Foundation
 import UIKit
 
+protocol ListTableViewCellModelDelegate: AnyObject {
+    func updateImage(_ result: ListTableViewCellModel.LoadResultStatus)
+}
+
 final class ListTableViewCellModel {
     private let loadImageUseCase: LoadImageUseCase
     private static let placeholderImage = UIImage(named: "placeholder")!
     private static let notFoundImage = UIImage(named: "notFound")!
-    
+    private var status: ModelStatus = .unowned
+    weak var delegate: ListTableViewCellModelDelegate?
     let name: String
     let index: Int
     
@@ -23,22 +28,36 @@ final class ListTableViewCellModel {
         self.index = index
         self.loadImageUseCase = loadImageUseCase
     }
-
-    func loadImage(_ complection: @escaping (LoadStatus) -> Void) {
-        complection(.loading(Self.placeholderImage))
-        loadImageUseCase.invoke(index) { image in
-            guard let image = image else {
-                return complection(.failure(Self.notFoundImage))
+    
+    func loadImage() {
+        
+        guard status != .loding else { return }
+        
+        status = .loding
+        
+        delegate?.updateImage(.loading(Self.placeholderImage))
+        loadImageUseCase.invoke(index) { [weak self] image in
+            guard let self = self else { return }
+            
+            var result: LoadResultStatus = .failure(Self.notFoundImage)
+            if let image = image {
+                result = .imageDidLoad(image)
             }
-            complection(.imageDidLoad(image))
+            self.delegate?.updateImage(result)
+            
+            self.status = .loaded
         }
     }
 }
 
 extension ListTableViewCellModel {
-    enum LoadStatus {
+    enum LoadResultStatus {
         case loading(UIImage)
         case failure(UIImage)
         case imageDidLoad(UIImage)
+    }
+    
+    enum ModelStatus {
+        case loding, loaded, unowned
     }
 }

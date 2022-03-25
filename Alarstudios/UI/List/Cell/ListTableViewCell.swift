@@ -38,7 +38,7 @@ final class ListTableViewCell: UITableViewCell {
     // MARK: - lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-       setupUI()
+        setupUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,7 +52,7 @@ final class ListTableViewCell: UITableViewCell {
         mainContainer.backgroundColor = UIColor(named: "backgroundTableCell")
         mainContainer.addSubview(randomImageView)
         mainContainer.addSubview(listTitleLabel)
-    
+        
         setupLayouts()
     }
     
@@ -83,18 +83,26 @@ final class ListTableViewCell: UITableViewCell {
     func setModel(_ model: ListTableViewCellModel) {
         self.model = model
         self.listTitleLabel.text = model.name
-        
         self.randomImageView.image = UIImage(named: "placeholder")
-        
-        model.loadImage { [weak self] result in
-            switch result {
-            case .imageDidLoad(let image):
-                self?.randomImageView.image = image
-            case .loading(let image):
-                self?.randomImageView.image = image
-            case .failure(let image):
-                self?.randomImageView.image = image
-            }
+        model.delegate = self
+        model.loadImage()
+    }
+    
+    func clearModel() {
+        self.model?.delegate = nil
+        self.model = nil
+    }
+}
+
+extension ListTableViewCell: ListTableViewCellModelDelegate {
+    func updateImage(_ result: ListTableViewCellModel.LoadResultStatus) {
+        switch result {
+        case .imageDidLoad(let image):
+            randomImageView.image = image
+        case .loading(let image):
+            randomImageView.image = image
+        case .failure(let image):
+            randomImageView.image = image
         }
     }
 }

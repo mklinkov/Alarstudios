@@ -38,7 +38,8 @@ final class ListTableViewModel: NSObject, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.reuseIdentifier) as? ListTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier:
+                                                        ListTableViewCell.reuseIdentifier) as? ListTableViewCell {
             return prepareCell(cell, index: indexPath.row)
         }
         return UITableViewCell()
@@ -54,6 +55,12 @@ final class ListTableViewModel: NSObject, UITableViewDataSource, UITableViewDele
             delegate?.loadNexPage()
         }
     }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = cell as? ListTableViewCell else { return }
+        cell.clearModel()
+    }
+    
 }
 
 private extension ListTableViewModel {
@@ -61,14 +68,13 @@ private extension ListTableViewModel {
     func prepareCell(_ cell: ListTableViewCell, index: Int) -> ListTableViewCell {
         if listCellModel.indices.contains(index) {
             cell.setModel(listCellModel[index])
-        }
-        else {
+        } else {
             if let model = cellModelBulder?.createCellModel(index: index, name: list[index].name) {
                 listCellModel.insert(model, at: index)
                 cell.setModel(model)
             }
         }
-
+        
         return cell
     }
 }
@@ -78,4 +84,3 @@ extension ListTableViewModel {
         self.list.append(contentsOf: list)
     }
 }
-

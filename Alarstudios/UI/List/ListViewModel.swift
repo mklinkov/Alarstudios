@@ -19,7 +19,7 @@ protocol ListViewModelInput: AnyObject {
 final class ListViewModel {
     private let listUseCase: LoadListsPageUseCase
     private var numberPage: Int = 0
-    var presenter: ListViewModelOutput?
+    weak var presenter: ListViewModelOutput?
     
     init(listUseCase: LoadListsPageUseCase) {
         self.listUseCase = listUseCase

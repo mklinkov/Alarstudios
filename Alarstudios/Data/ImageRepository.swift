@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-///Протокол репозитори загрузки изображений
-///отвественность репозитория это выбор источника информации сеть, память, база
-///репозиторий  абстракция чтобы логика была изолирована от источника данных
-///репозиторий всегда описывается через протокол
+/// Протокол репозитори загрузки изображений
+/// отвественность репозитория это выбор источника информации сеть, память, база
+/// репозиторий  абстракция чтобы логика была изолирована от источника данных
+/// репозиторий всегда описывается через протокол
 /// в репозитории всегда возврает результат в main
 protocol ImageRepositoryProtocol {
     func loadRandomImage(_ index: Int, _ complection: @escaping (Result<UIImage, ImageLoadError>) -> Void)
@@ -29,7 +29,7 @@ final class ImageRepository: ImageRepositoryProtocol {
         self.network = network
         self.store = store
     }
-
+    
     func loadRandomImage(_ index: Int, _ complection: @escaping (Result<UIImage, ImageLoadError>) -> Void) {
         if let image = store?.getImage(index: index) {
             return complection(.success(image))

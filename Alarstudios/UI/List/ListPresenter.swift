@@ -7,18 +7,18 @@
 
 import Foundation
 
-protocol ListPresenterOutput {
+protocol ListPresenterOutput: AnyObject {
     func showPage(_ list: [PageModel.Item])
     func showError(_ error: CustomError)
 }
 
-protocol ListPresenterInput {
+protocol ListPresenterInput: AnyObject {
     func openDetail(_ item: PageModel.Item)
     func loadNextPage()
 }
 
 final class ListPresenter {
-    private let view: ListPresenterOutput
+    private weak var view: ListPresenterOutput?
     private let router: ListRouter
     private let viewModel: ListViewModelInput
     init(view: ListPresenterOutput,
@@ -41,9 +41,9 @@ extension ListPresenter: ListPresenterInput {
 
 extension ListPresenter: ListViewModelOutput {
     func showPage(_ list: [PageModel.Item]) {
-        view.showPage(list)
+        view?.showPage(list)
     }
     func showError(_ error: CustomError) {
-        view.showError(error)
+        view?.showError(error)
     }
 }

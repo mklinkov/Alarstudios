@@ -52,7 +52,9 @@ struct PageModel: Decodable {
 }
 
 extension NetwokService {
-    func get(_ page: Int, _ sessionKey: String, _ complection: @escaping (Result<PageRequest.Response, CustomError>) -> Void) {
+    func get(_ page: Int,
+             _ sessionKey: String,
+             _ complection: @escaping (Result<PageRequest.Response, CustomError>) -> Void) {
         let request = PageRequest(sessionKey, page)
         network.request(request) { result in
             switch result {

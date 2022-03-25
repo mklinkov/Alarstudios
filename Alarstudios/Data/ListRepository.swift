@@ -13,7 +13,9 @@ import Foundation
 /// репозиторий всегда описывается через протокол
 /// в репозитории всегда возврает результат в main
 protocol ListRepositoryProtocol {
-    func get(_ page: Int, _ sessionKey: String, _ complection: @escaping (Result<PageRequest.Response, CustomError>) -> Void)
+    func get(_ page: Int,
+             _ sessionKey: String,
+             _ complection: @escaping (Result<PageRequest.Response, CustomError>) -> Void)
 }
 
 final class ListRepository: ListRepositoryProtocol {
@@ -22,7 +24,9 @@ final class ListRepository: ListRepositoryProtocol {
         self.dataSource = dataSource
     }
     
-    func get(_ page: Int, _ sessionKey: String, _ complection: @escaping (Result<PageRequest.Response, CustomError>) -> Void) {
+    func get(_ page: Int,
+             _ sessionKey: String,
+             _ complection: @escaping (Result<PageRequest.Response, CustomError>) -> Void) {
         dataSource.get(page, sessionKey) { result in
             DispatchQueue.main.async {
                 complection(result)

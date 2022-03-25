@@ -15,7 +15,9 @@ struct ConstsForTests {
 }
 
 struct LoginRepositoryUseCaseMockSuccess: LoginRepositoryProtocol {
-    func signeIn(_ login: String, _ password: String, _ complection: @escaping (Result<LoginRequest.Response, CustomError>) -> Void) {
+    func signeIn(_ login: String,
+                 _ password: String,
+                 _ complection: @escaping (Result<LoginRequest.Response, CustomError>) -> Void) {
         complection(.success(.init(status: .ok, code: ConstsForTests.mockSessionKey)))
     }
     
@@ -26,11 +28,13 @@ struct LoginRepositoryUseCaseMockSuccess: LoginRepositoryProtocol {
     func setSessionKey(_ sessionKey: String) {
         
     }
-
+    
 }
 
 struct LoginRepositoryUseCaseMockFailure: LoginRepositoryProtocol {
-    func signeIn(_ login: String, _ password: String, _ complection: @escaping (Result<LoginRequest.Response, CustomError>) -> Void) {
+    func signeIn(_ login: String,
+                 _ password: String,
+                 _ complection: @escaping (Result<LoginRequest.Response, CustomError>) -> Void) {
         complection(.failure(.wrongLoginPassword))
     }
     
@@ -41,5 +45,4 @@ struct LoginRepositoryUseCaseMockFailure: LoginRepositoryProtocol {
     func setSessionKey(_ sessionKey: String) {
         
     }
-    
 }

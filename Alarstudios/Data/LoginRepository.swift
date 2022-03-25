@@ -13,7 +13,9 @@ import Foundation
 /// репозиторий всегда описывается через протокол
 /// в репозитории всегда возврает результат в main
 protocol LoginRepositoryProtocol {
-    func signeIn(_ login: String, _ password: String, _ complection: @escaping (Result<LoginRequest.Response, CustomError>) -> Void)
+    func signeIn(_ login: String,
+                 _ password: String,
+                 _ complection: @escaping (Result<LoginRequest.Response, CustomError>) -> Void)
     func getSessionKey() -> String?
     func setSessionKey(_ sessionKey: String)
 }
@@ -40,7 +42,7 @@ final class LoginRepository: LoginRepositoryProtocol {
     func setSessionKey(_ sessionKey: String) {
         store?.sessionkey = sessionKey
     }
-
+    
     func getSessionKey() -> String? {
         store?.sessionkey
     }
@@ -79,7 +81,7 @@ protocol LoginInMemoryStoreProtocol: AnyObject {
 }
 final class LoginInMemoryStore: LoginInMemoryStoreProtocol {
     static let instance = LoginInMemoryStore.init()
-
+    
     private init() { }
     var sessionkey: String?
 }

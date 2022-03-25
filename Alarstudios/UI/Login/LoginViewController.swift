@@ -9,7 +9,7 @@ import UIKit
 
 final class LoginViewController: BaseViewController, UITextFieldDelegate {
     let padding: CGFloat = 16
-    weak var presenter: LoginPresenterInput?
+    var presenter: LoginPresenterInput?
     private lazy var loginTextField: TextField = {
         let textField = TextField()
         textField.placeholder = "account"
@@ -45,11 +45,6 @@ final class LoginViewController: BaseViewController, UITextFieldDelegate {
         return view
     }()
     
-    override func loadView() {
-        super.loadView()
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -67,31 +62,48 @@ final class LoginViewController: BaseViewController, UITextFieldDelegate {
         
         view.addSubview(backgroundImage)
         view.sendSubviewToBack(backgroundImage)
-        backgroundImage.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        backgroundImage.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        backgroundImage.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImage.rightAnchor.constraint(equalTo: view.rightAnchor),
+            backgroundImage.leftAnchor.constraint(equalTo: view.leftAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
         
         view.addSubview(self.loginTextField)
         
-        loginTextField.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: padding).isActive = true
-        loginTextField.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -padding).isActive = true
-        loginTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding).isActive = true
-        loginTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        NSLayoutConstraint.activate([
+            loginTextField.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor,
+                                                 constant: padding),
+            loginTextField.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor,
+                                                  constant: -padding),
+            loginTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
+                                                constant: padding),
+            loginTextField.heightAnchor.constraint(equalToConstant: 50)
+        ])
         loginTextField.delegate = self
         
         view.addSubview(self.passwordTextField)
-        self.passwordTextField.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: padding).isActive = true
-        self.passwordTextField.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -padding).isActive = true
-        self.passwordTextField.topAnchor.constraint(equalTo: loginTextField.bottomAnchor, constant: padding).isActive = true
-        self.passwordTextField.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        NSLayoutConstraint.activate([
+            passwordTextField.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor,
+                                                    constant: padding),
+            passwordTextField.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor,
+                                                     constant: -padding),
+            passwordTextField.topAnchor.constraint(equalTo: loginTextField.bottomAnchor,
+                                                   constant: padding),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 48)
+        ])
         passwordTextField.delegate = self
         
         view.addSubview(self.loginButton)
-        self.loginButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: padding).isActive = true
-        self.loginButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -padding).isActive = true
-        self.loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: padding).isActive = true
-        self.loginButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        NSLayoutConstraint.activate([
+            loginButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor,
+                                              constant: padding),
+            loginButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor,
+                                               constant: -padding),
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor,
+                                             constant: padding),
+            loginButton.heightAnchor.constraint(equalToConstant: 48)
+        ])
         self.loginButton.addTarget(self, action: #selector(loginBtnPressed), for: .touchUpInside)
         
     }
@@ -114,9 +126,6 @@ extension LoginViewController: LoginPresenterOutput {
             break
         }
         
-        let myAlert = UIAlertController(title: titleAlert, message: textAlert, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)
-        myAlert.addAction(okAction)
-        present(myAlert, animated: true, completion: nil)
+        shoAlert(titleAlert, textAlert)
     }
 }

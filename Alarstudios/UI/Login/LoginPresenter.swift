@@ -12,7 +12,7 @@ protocol LoginPresenterOutput: AnyObject {
     func loginDidFail(_ error: LoginPresenter.DisplayFailure)
 }
 
-///протокол для получения событий с view
+/// протокол для получения событий с view
 protocol LoginPresenterInput: AnyObject {
     func loginAction(_ login: String?, _ passwor: String?)
 }
@@ -24,7 +24,7 @@ final class LoginPresenter {
     }
     
     private let router: LoginRouter
-    private let view: LoginPresenterOutput
+    private weak var view: LoginPresenterOutput?
     private let viewModel: LoginViewModelInput
     
     init(view: LoginPresenterOutput,
@@ -44,7 +44,7 @@ extension LoginPresenter: LoginPresenterInput {
 
 extension LoginPresenter: LoginViewModelOutput {
     func showError(_ error: DisplayFailure) {
-        view.loginDidFail(error)
+        view?.loginDidFail(error)
     }
     
     func loginDidSuccess() {

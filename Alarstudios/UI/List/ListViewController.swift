@@ -27,19 +27,13 @@ final class ListViewController: BaseViewController {
         let listCellModelBuilder = ListCellModelBuilder(loadinImageUsecase: loadImageUsecase)
         return ListTableViewModel(tableView: tableView, cellModelBulder: listCellModelBuilder )
     }()
-
-    override func loadView() {
-        super.loadView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         tableView.dataSource = tableModel
         tableView.delegate = tableModel
         tableModel.setDelegate(self)
         presenter?.loadNextPage()
-        
-        setupUI()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         setupConstraint()
     }
     
@@ -67,7 +61,9 @@ extension ListViewController: ListPresenterOutput {
     }
     
     func showError(_ error: CustomError) {
-        //показать ошибку
+        let titleAlert = "Error"
+        let textAlert = "Error loading page"
+        shoAlert(titleAlert, textAlert)
     }
 }
 

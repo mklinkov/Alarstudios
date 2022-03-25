@@ -22,3 +22,12 @@ class BaseViewController: UIViewController {
     }
     
 }
+
+extension BaseViewController {
+    func shoAlert(_ title: String, _ message: String) {
+        let myAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)
+        myAlert.addAction(okAction)
+        present(myAlert, animated: true, completion: nil)
+    }
+}

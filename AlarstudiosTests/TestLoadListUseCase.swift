@@ -8,7 +8,7 @@
 import XCTest
 
 final class TestLoadListUseCase: XCTestCase {
-    //TODO: Дописать тесты на загрузку списка
+    // TODO: Дописать тесты на загрузку списка
     func testLoadFirstPage() {
         
     }

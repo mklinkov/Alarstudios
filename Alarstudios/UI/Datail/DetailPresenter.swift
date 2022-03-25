@@ -16,7 +16,7 @@ protocol DetailPresenterInput {
 }
 
 final class DetailPresenter {
-    private let view: DetailPresenterOutput
+    private weak var view: DetailPresenterOutput?
     private let viewModel: DetailViewModelInput
     init(view: DetailPresenterOutput,
          viewModel: DetailViewModelInput) {
@@ -33,6 +33,6 @@ extension DetailPresenter: DetailPresenterInput {
 
 extension DetailPresenter: DetailViewModelOutput {
     func showItemDetail(_ item: PageModel.Item) {
-        view.showItemDetail(DetailItemModel(item))
+        view?.showItemDetail(DetailItemModel(item))
     }
 }

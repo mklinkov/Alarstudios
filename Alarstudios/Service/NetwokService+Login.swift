@@ -16,14 +16,14 @@ struct LoginRequest: DataRequest {
     
     var queryItems: [String: String] {
         ["username": "\(login)",
-            "password": password ]
+         "password": password ]
     }
     
     init(_ login: String, _ password: String) {
         self.login = login
         self.password = password
     }
-
+    
 }
 
 struct LoginResponseModel: Decodable {
@@ -43,7 +43,9 @@ extension LoginResponseModel: Equatable {
 }
 
 extension NetwokService {
-    func signeIn(_ login: String, _ password: String, _  complection: @escaping (Result<LoginRequest.Response, CustomError>) -> Void) {
+    func signeIn(_ login: String,
+                 _ password: String,
+                 _  complection: @escaping (Result<LoginRequest.Response, CustomError>) -> Void) {
         let request = LoginRequest(login, password)
         network.request(request) { response in
             switch response {

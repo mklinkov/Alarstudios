@@ -31,7 +31,8 @@ struct LoadImageRequest: DataRequest {
 }
 
 extension NetwokService {
-    func loadImage(_ index: Int, _  complection: @escaping (Result<LoadImageRequest.Response, ImageLoadError>) -> Void) {
+    func loadImage(_ index: Int,
+                   _  complection: @escaping (Result<LoadImageRequest.Response, ImageLoadError>) -> Void) {
         let request = LoadImageRequest(sig: index)
         network.request(request) { response in
             switch response {

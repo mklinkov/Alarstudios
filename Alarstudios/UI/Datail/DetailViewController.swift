@@ -14,7 +14,6 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var nameLabel: UILabel!
-    
     let backgroundImage: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "background")
@@ -43,13 +42,12 @@ final class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: DetailPresenterOutput {
-    
     func showItemDetail(_ model: DetailItemModel) {
         nameLabel.text = model.name
         countryLabel.text = model.country
         positionLabel.text = model.locationString
         DispatchQueue.main.async {
-            /// в main.async чтобы не притормаживал UI  при открытии контроллера
+            // в main.async чтобы не притормаживал UI  при открытии контроллера
             self.showMapPoint(model.pointLocation, name: model.name)
         }
     }
@@ -57,14 +55,15 @@ extension DetailViewController: DetailPresenterOutput {
     private func showMapPoint(_ pointLocation: CLLocationCoordinate2D, name: String ) {
         
         let annotations = MKPointAnnotation()
-        
         annotations.title = name
         annotations.coordinate = pointLocation
         mapView.addAnnotation(annotations)
         
         let regionRadius: CLLocationDistance = 1000
         
-        let coordinateRegion = MKCoordinateRegion(center: pointLocation, latitudinalMeters: CLLocationDistance(exactly: regionRadius)!, longitudinalMeters: CLLocationDistance(exactly: regionRadius)!)
+        let coordinateRegion = MKCoordinateRegion(center: pointLocation,
+                                                  latitudinalMeters: CLLocationDistance(exactly: regionRadius)!,
+                                                  longitudinalMeters: CLLocationDistance(exactly: regionRadius)!)
         
         mapView.setRegion(coordinateRegion, animated: false)
     }
