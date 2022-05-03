@@ -29,15 +29,12 @@
 		3228FCD027DB632600745A3A /* NetwokService+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3228FCCF27DB632600745A3A /* NetwokService+Login.swift */; };
 		327140E527E6197D00B6A1A7 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327140E427E6197D00B6A1A7 /* TextField.swift */; };
 		327140E727E61F3900B6A1A7 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327140E627E61F3900B6A1A7 /* LoginPresenter.swift */; };
-		327140E927E61F5100B6A1A7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327140E827E61F5100B6A1A7 /* LoginViewModel.swift */; };
 		327140EB27E6279800B6A1A7 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327140EA27E6279800B6A1A7 /* LoginRouter.swift */; };
 		327140EE27E65C5A00B6A1A7 /* ListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327140ED27E65C5A00B6A1A7 /* ListTableViewModel.swift */; };
-		327140F227E65EA300B6A1A7 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327140F127E65EA300B6A1A7 /* ListViewModel.swift */; };
 		327140F427E65EB700B6A1A7 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327140F327E65EB700B6A1A7 /* ListPresenter.swift */; };
 		327140F627E65EC600B6A1A7 /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327140F527E65EC600B6A1A7 /* ListRouter.swift */; };
 		327140F827E67AA500B6A1A7 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327140F727E67AA500B6A1A7 /* ListTableViewCell.swift */; };
 		327140FB27E67B6200B6A1A7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327140FA27E67B6200B6A1A7 /* DetailViewController.swift */; };
-		327140FD27E6826300B6A1A7 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327140FC27E6826300B6A1A7 /* DetailViewModel.swift */; };
 		327140FF27E6827700B6A1A7 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327140FE27E6827700B6A1A7 /* DetailPresenter.swift */; };
 		3271410127E73BD700B6A1A7 /* NetwokService+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3271410027E73BD700B6A1A7 /* NetwokService+loadImage.swift */; };
 		3271410327E73DA900B6A1A7 /* LoadImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3271410227E73DA900B6A1A7 /* LoadImageUseCase.swift */; };
@@ -85,15 +82,12 @@
 		3228FCCF27DB632600745A3A /* NetwokService+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetwokService+Login.swift"; sourceTree = "<group>"; };
 		327140E427E6197D00B6A1A7 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		327140E627E61F3900B6A1A7 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
-		327140E827E61F5100B6A1A7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		327140EA27E6279800B6A1A7 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		327140ED27E65C5A00B6A1A7 /* ListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewModel.swift; sourceTree = "<group>"; };
-		327140F127E65EA300B6A1A7 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		327140F327E65EB700B6A1A7 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		327140F527E65EC600B6A1A7 /* ListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
 		327140F727E67AA500B6A1A7 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		327140FA27E67B6200B6A1A7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		327140FC27E6826300B6A1A7 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		327140FE27E6827700B6A1A7 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		3271410027E73BD700B6A1A7 /* NetwokService+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetwokService+loadImage.swift"; sourceTree = "<group>"; };
 		3271410227E73DA900B6A1A7 /* LoadImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageUseCase.swift; sourceTree = "<group>"; };
@@ -215,7 +209,6 @@
 			children = (
 				3228FCB127D8B3F600745A3A /* LoginViewController.swift */,
 				327140E627E61F3900B6A1A7 /* LoginPresenter.swift */,
-				327140E827E61F5100B6A1A7 /* LoginViewModel.swift */,
 				327140EA27E6279800B6A1A7 /* LoginRouter.swift */,
 			);
 			path = Login;
@@ -227,7 +220,6 @@
 				3271411027E8869100B6A1A7 /* Cell */,
 				327140EC27E65C4400B6A1A7 /* TableHelpers */,
 				3228FCB527D8B47600745A3A /* ListViewController.swift */,
-				327140F127E65EA300B6A1A7 /* ListViewModel.swift */,
 				327140F327E65EB700B6A1A7 /* ListPresenter.swift */,
 				327140F527E65EC600B6A1A7 /* ListRouter.swift */,
 			);
@@ -266,7 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				327140FA27E67B6200B6A1A7 /* DetailViewController.swift */,
-				327140FC27E6826300B6A1A7 /* DetailViewModel.swift */,
 				327140FE27E6827700B6A1A7 /* DetailPresenter.swift */,
 				3271410A27E8602700B6A1A7 /* DetailItemModel.swift */,
 				3271410827E7AB1500B6A1A7 /* DetailViewController.xib */,
@@ -398,7 +389,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrectswiftlint autocorrect\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -422,11 +413,9 @@
 				327140E527E6197D00B6A1A7 /* TextField.swift in Sources */,
 				3271410327E73DA900B6A1A7 /* LoadImageUseCase.swift in Sources */,
 				3228FCCE27DB631500745A3A /* NetwokService+Page.swift in Sources */,
-				327140FD27E6826300B6A1A7 /* DetailViewModel.swift in Sources */,
 				3271410127E73BD700B6A1A7 /* NetwokService+loadImage.swift in Sources */,
 				3228FCAD27D8B12900745A3A /* Router.swift in Sources */,
 				3228FC7827D8ABD400745A3A /* SceneDelegate.swift in Sources */,
-				327140F227E65EA300B6A1A7 /* ListViewModel.swift in Sources */,
 				3228FCA927D8B0AE00745A3A /* BaseViewController.swift in Sources */,
 				3228FCC727D8CDD800745A3A /* ListRepository.swift in Sources */,
 				327140EE27E65C5A00B6A1A7 /* ListTableViewModel.swift in Sources */,
@@ -438,7 +427,6 @@
 				327140F427E65EB700B6A1A7 /* ListPresenter.swift in Sources */,
 				3228FCCA27D913C100745A3A /* BaseNework.swift in Sources */,
 				3228FCBA27D8B5C200745A3A /* LoginRepository.swift in Sources */,
-				327140E927E61F5100B6A1A7 /* LoginViewModel.swift in Sources */,
 				327140EB27E6279800B6A1A7 /* LoginRouter.swift in Sources */,
 				3228FCC527D8CD2200745A3A /* LoadListsPageUseCase.swift in Sources */,
 			);

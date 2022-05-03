@@ -35,13 +35,11 @@ extension Router {
     class func loginScreen() -> UIViewController {
         let loginRepository = LoginRepository(dataSource: NetwokService(), store: LoginInMemoryStore.instance)
         let loginUsecase = LoginUseCase(loginRepository: loginRepository)
-        let viewModel = LoginViewModel(loginUseCase: loginUsecase)
         
         let viewController = LoginViewController()
         let router = LoginRouter(view: viewController)
         
-        let presenter = LoginPresenter(view: viewController, router: router, viewModel: viewModel)
-        viewModel.presenter = presenter
+        let presenter = LoginPresenter(view: viewController, router: router, loginUseCase: loginUsecase)
         
         viewController.presenter = presenter
         return viewController

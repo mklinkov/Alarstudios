@@ -25,29 +25,52 @@ final class LoginPresenter {
     
     private let router: LoginRouter
     private weak var view: LoginPresenterOutput?
-    private let viewModel: LoginViewModelInput
+    private let loginUseCase: LoginUseCase
     
     init(view: LoginPresenterOutput,
          router: LoginRouter,
-         viewModel: LoginViewModelInput) {
+         loginUseCase: LoginUseCase) {
         self.view = view
         self.router = router
-        self.viewModel = viewModel
+        self.loginUseCase = loginUseCase
     }
 }
 
 extension LoginPresenter: LoginPresenterInput {
     func loginAction(_ login: String?, _ passwor: String?) {
-        viewModel.login(login, passwor)
+        self.login(login, passwor)
     }
 }
 
-extension LoginPresenter: LoginViewModelOutput {
-    func showError(_ error: DisplayFailure) {
-        view?.loginDidFail(error)
+extension LoginPresenter {
+    
+    private func showError(_ error: CustomError) {
+        let title = "Ошибка"
+        var message = "Не известаня ошибка!"
+        switch error {
+        case .wrongLoginPassword:
+            message = "Ошибка авторизации"
+        case .validationLoginError:
+            message = "Ошибка валидации логина"
+        case .validationPassworError:
+            message = "Ошибка валидации пароля"
+        case .netwokError(let error):
+            message = "Ошибка сети: \(error.localizedDescription)"
+        default:
+            break
+        }
+        view?.loginDidFail(.showAlert(title: title, message: message))
     }
     
-    func loginDidSuccess() {
-        router.openListView()
+    private func login(_ login: String?, _ password: String?) {
+        loginUseCase.invoke(login, password) { [weak self] result in
+            switch result {
+            case .failure(let error):
+                self?.showError(error)
+            case .success:
+                self?.router.openListView()
+            }
+        }
     }
+    
 }

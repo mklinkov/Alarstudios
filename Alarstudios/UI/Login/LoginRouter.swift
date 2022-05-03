@@ -14,15 +14,12 @@ final class LoginRouter: Router {
         let loginRepository = LoginRepository(dataSource: network, store: LoginInMemoryStore.instance)
         let listRepository = ListRepository(dataSource: network)
         let loadPageUseCase = LoadListsPageUseCase(listRepository: listRepository, loginRepository: loginRepository)
-        
-        let viewModel = ListViewModel(listUseCase: loadPageUseCase)
-        
+                
         let listViewController = ListViewController()
         let router = ListRouter(view: listViewController)
-        let presenter = ListPresenter(view: listViewController, router: router, viewModel: viewModel)
+        let presenter = ListPresenter(view: listViewController, router: router, listUseCase: loadPageUseCase)
         
         listViewController.presenter = presenter
-        viewModel.presenter = presenter
         
         let navigationController = UINavigationController(rootViewController: listViewController)
         let appearance = UINavigationBarAppearance()
